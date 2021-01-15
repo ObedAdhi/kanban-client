@@ -1,0 +1,37 @@
+.smallFont {
+  font-size: x-small;
+}
+p {
+  margin: 0px;
+}
+.scrollX {
+  overflow-x:auto;
+}
+.scrollY {
+  overflow-y:auto;
+}
+body {
+  margin: 0; 
+  height: 100%; 
+  overflow: hidden
+}
+
+.floatRight {
+  float: right;
+}
+
+.hidethis {
+  display: none;
+}
+
+.hoverme:hover + .hidethis {
+  display: block;
+}
+
+#hideIt {
+  opacity: 0;
+}
+
+#hideIt:hover {
+  opacity: 1;
+}
