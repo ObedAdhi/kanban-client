@@ -74,7 +74,7 @@ export default {
   },
   data() {
     return {
-      clientId: '775560134433-cep59p1uhqf8q4p8jsr9gfl2gbefddep.apps.googleusercontent.com',
+      clientId: '775560134433-nkbdmm81lau6onegdlk9ek9to5nf6bia.apps.googleusercontent.com',
       message: "Hello vue",
       page: "login",
       server: "https://kanban-server-wary-fox.herokuapp.com",
