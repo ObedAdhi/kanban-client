@@ -63,7 +63,7 @@ export default {
       email: "",
       password: "",
       fullname: "",
-      server: "http://localhost:3000",
+      server: "https://kanban-server-wary-fox.herokuapp.com",
     }
   },
   methods: {
@@ -112,8 +112,8 @@ export default {
 
 <style>
 .google-signin-button {
-  color: white;
-  background-color: red;
+  color: blue;
+  background-color: #eeeeee;
   height: 50px;
   font-size: 16px;
   border-radius: 10px;

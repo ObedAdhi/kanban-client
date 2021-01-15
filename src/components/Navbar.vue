@@ -6,7 +6,7 @@
       <!-- Container wrapper -->
       <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand mx-5" style="font-weight:bold;" href="">KANBAN</a>
+        <a class="navbar-brand mx-5" style="font-weight:bold;" >KANBAN</a>
 
         <!-- Toggle button -->
         <button
@@ -70,6 +70,9 @@ export default {
       this.$emit("changePage", "main")
       this.$emit("reCheckAuth")
     },
+    reCheckAuth() {
+      this.$emit("reCheckAuth")
+    }
   },
   props: ["page", "switchLoginRegister"]
 }

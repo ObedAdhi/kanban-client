@@ -5,7 +5,7 @@
     </div>
     <div class="card p-2 col-md-6" style="width: 300px; background-color: #eeeeee;"> 
       <h3>Add New Category</h3><br>
-      <form @submit.prevent="createCategory">
+      <form @submit.prevent="handleNameForCreateCategory">
         <div class="form-outline mb-4">
           <input v-model="name" type="text" id="addCategoryName" class="form-control bg-light" />
           <label class="form-label" for="addCategoryName">Category's Name</label>
@@ -27,30 +27,13 @@ export default {
   name: "CategoryAddForm",
   data () {
     return {
-      server: "http://localhost:3000",
       name: "",
     }
   },
   methods: {
-    createCategory() {
-      let name = this.name
-      axios({
-        method: "POST",
-        url: this.server + "/categories",
-        headers: {
-          access_token: localStorage.access_token
-        }, 
-        data: {
-          name
-        }
-      })
-      .then(data => {
-        this.$emit("changePage", "main")
-        this.$emit("reCheckAuth")
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    handleNameForCreateCategory() {
+      let params = this.name
+      this.$emit("handleNameForCreateCategory", params)
     },
   },
   props: ["switchLoginRegister"],

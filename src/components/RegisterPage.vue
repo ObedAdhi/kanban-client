@@ -60,7 +60,6 @@ export default {
       email: "",
       password: "",
       fullname: "",
-      server: "http://localhost:3000",
     }
   },
   methods: {

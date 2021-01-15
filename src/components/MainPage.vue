@@ -25,11 +25,6 @@ import CategoryContainer from "./CategoryContainer"
 
 export default {
   name: "MainPage",
-  data() {
-    return {
-
-    }
-  },
   methods: {
     sendCategoryId(param) {
       console.log(param);

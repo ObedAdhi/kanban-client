@@ -1,6 +1,7 @@
 <template>
   <div>
     <Navbar 
+      v-if=" page !== 'null'"
       :page="page"
       :switchLoginRegister="switchLoginRegister"
       @reCheckAuth="checkAuth">
@@ -47,7 +48,8 @@
       <CategoryAddForm
         v-if=" page === 'addCategory'" 
         :switchLoginRegister="switchLoginRegister"
-        @changePage="switchLoginRegister">
+        @changePage="switchLoginRegister"
+        @handleNameForCreateCategory="createCategory">
       </CategoryAddForm>
     </div>
   </div>
@@ -75,7 +77,7 @@ export default {
       clientId: '775560134433-cep59p1uhqf8q4p8jsr9gfl2gbefddep.apps.googleusercontent.com',
       message: "Hello vue",
       page: "login",
-      server: "http://localhost:3000",
+      server: "https://kanban-server-wary-fox.herokuapp.com",
       allTask: [],
       allCategory: [],
       email: "",
@@ -256,6 +258,30 @@ export default {
       })
     },
 
+    createCategory(nameParams) {
+      let name = nameParams
+      axios({
+        method: "POST",
+        url: this.server + "/categories",
+        headers: {
+          access_token: localStorage.access_token
+        }, 
+        data: {
+          name
+        }
+      })
+      .then(data => {
+        this.checkAuth()
+      })
+      .catch(err => {
+        Swal.fire({
+          title: 'Error!',
+          text: err.response.data[0].message,
+          icon: 'error',
+        })
+      })
+    },
+
     updateOneTask (titleParams) {
       let title = titleParams
       let id = this.taskIdForUpdatingTask
@@ -373,6 +399,7 @@ export default {
     this.checkAuth()
   },
   mounted() {
+    this.checkAuth()
     if(localStorage.getItem("access_token")) {
       this.getAllCategory()
     }

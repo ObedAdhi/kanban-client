@@ -22,7 +22,6 @@ export default {
   name: "TaskAddForm",
   data () {
     return {
-      server: "http://localhost:3000",
       title: "",
       categoryId: ""
     }
